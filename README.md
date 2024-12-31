@@ -11,6 +11,13 @@ git submodule add --depth=1 https://github.com/saaste/simple-hugo-theme.git them
 git submodule update --init --recursive
 ```
 
+Sinulla pitäisi nyt olla themes-hakemistossa alihakemisto, jonka nimi on simple-hugo-theme.
+
+Ota teema käyttöön lisäämällä seuraava rivi Hugo-projektin juuressa olevaan `hugo.toml` asetustiedostoon:
+```toml
+theme = 'simple-hugo-theme'
+```
+
 Mikäli sinun on myöhemmin päivitettävä teemaa, aja:
 
 ```shell
