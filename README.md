@@ -16,3 +16,13 @@ Mikäli sinun on myöhemmin päivitettävä teemaa, aja:
 ```shell
 git submodule update --remote --merge
 ```
+
+## Virhetilanteet
+
+### Teeman asennus antaa virheen: fatal: not a git repository (or any of the parent directories): .git
+
+Tämä johtuu todennäköisesti siitä, ettei kotisivuprojektiasi ole alustettu Gitillä. Suorita seuraava komento ja yritä asentamista sen jälkeen uudelleen.
+
+```shell
+git init
+```
