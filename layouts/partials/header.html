@@ -1,0 +1,13 @@
+{{/* Näytetään sivun otsikko */}}
+<h1>{{ site.Title }}</h1>
+<nav>
+    <ul>
+        {{/*
+            Listataan asetustiedostossa määritelty valikkoelementit.
+            Tässä tapauksessa valikon nimi on main.
+        */}}
+        {{- range .Site.Menus.main -}}
+            <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+        {{- end -}}
+    </ul>
+</nav>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="{{ site.Language.LanguageCode }}" dir="{{ or site.Language.LanguageDirection `ltr` }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  
+  <title>
+    {{- if .IsHome -}}
+      {{/* Etusivulla näytetään pelkkä sivuston nimi */}}
+      {{ .Site.Title }}
+    {{- else -}}
+    {{/* Muilla sivuilla näytetään sivun otsikko sekä sivun nimi */}}
+      {{ .Title }} | {{ .Site.Title }}
+    {{ end }}
+  </title>
+  
+  
+  {{- with resources.Get "css/main.css" -}}
+    {{/* CSS-tiedosto ladataan assets/css hakemistosta */}}
+    <link rel="stylesheet" href="{{ .RelPermalink }}">
+  {{- end -}}
+
+</head>
+<body>
+
+  <header>
+    {{/* Haetaan sisältö partials/header.html tiedostosta */}}
+    {{ partial "header.html" . }}
+  </header>
+
+  <main>
+    {{/*
+      Haetaan sisältö main-nimisestä lohkosta. Lohko tulee eri tiedostosta riippuen siitä
+      millaista sivua ollaan generoimassa:
+      - Etusivu: _default/home.html
+      - Listasivu: _default/list.html
+      - Yksittäinen sivu: _default/single.html
+      */}}
+    {{ block "main" . }}{{ end }}
+  </main>
+  
+  <footer>
+    {{/* Haetaan sisältö partials/footer.html tiedostosta */}}
+    {{ partial "footer.html" . }}
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+{{/* Määritellään main-niminen lohko */}}
+{{ define "main" }}
+  {{/* Näytetään sivujen otsikko */}}
+  <h1>{{ .Title }}</h1>
+  
+  {{/* Näytetään sivujen sisältö */}}
+  {{ .Content }}
+
+  {{/* Listataan kaikki alasivut ja tehdään niihin osoittavat linkit */}}
+  {{ range .Pages }}
+    <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+  {{ end }}
+
+{{ end }}
